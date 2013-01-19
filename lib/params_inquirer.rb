@@ -4,14 +4,21 @@ require 'active_support/string_inquirer'
 module ParamsInquirer
   class Parameters < ActiveSupport::HashWithIndifferentAccess
     def []=(key, value)
-      super(key, convert_to_inquirer(value))
+      super(key, convert_value(value))
     end
 
     protected
 
-    def convert_to_inquirer(value)
-      s_value = value.is_a?(Symbol) ? value.to_s : value
-      ActiveSupport::StringInquirer.new(s_value)
+    def convert_value(value)
+      if value.is_a?(String)
+        ActiveSupport::StringInquirer.new(value)
+      elsif value.is_a?(Symbol)
+        ActiveSupport::StringInquirer.new(value.to_s)
+      elsif value.is_a?(Hash)
+        Parameters.new(value)
+      else
+        value
+      end
     end
   end
 end
