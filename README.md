@@ -1,6 +1,6 @@
 # ParamsInquirer
 
-TODO: Write a gem description
+ParamsInquirer gives you a prettier way to inquire params value.
 
 ## Installation
 
@@ -18,7 +18,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+def index
+  if params[:status].accepted? # this means `params[:status] == 'accepted'`
+    # ...
+  elsif params[:status].rejected?
+    # ...
+  else
+    # ...
+  end
+end
+```
 
 ## Contributing
 

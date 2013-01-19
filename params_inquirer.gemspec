@@ -6,11 +6,11 @@ require 'params_inquirer/version'
 Gem::Specification.new do |gem|
   gem.name          = "params_inquirer"
   gem.version       = ParamsInquirer::VERSION
-  gem.authors       = ["naoty"]
+  gem.authors       = ["Naoto Kaneko"]
   gem.email         = ["naoty.k@gmail.com"]
-  # gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{Params inquirer}
-  gem.homepage      = ""
+  gem.description   = %q{ParamsInquirer gives you a prettier way to inquire params value.}
+  gem.summary       = %q{ParamsInquirer gives you a prettier way to inquire params value.}
+  gem.homepage      = "https://github.com/naoty/params_inquirer"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
