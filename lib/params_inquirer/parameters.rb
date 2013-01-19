@@ -3,6 +3,14 @@ require 'active_support/string_inquirer'
 
 module ParamsInquirer
   class Parameters < ActiveSupport::HashWithIndifferentAccess
+    def initialize(other_hash = {})
+      params = super()
+      other_hash.each_pair do |key, value|
+        params[key] = convert_value(value)
+      end
+      params
+    end
+
     def []=(key, value)
       super(key, convert_value(value))
     end
