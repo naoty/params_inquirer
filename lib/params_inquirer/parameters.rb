@@ -18,11 +18,12 @@ module ParamsInquirer
     protected
 
     def convert_value(value)
-      if value.is_a?(String)
+      case value
+      when String
         ActiveSupport::StringInquirer.new(value)
-      elsif value.is_a?(Symbol)
+      when Symbol
         ActiveSupport::StringInquirer.new(value.to_s)
-      elsif value.is_a?(Hash)
+      when Hash
         Parameters.new(value)
       else
         value
